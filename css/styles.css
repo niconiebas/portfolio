@@ -2243,33 +2243,46 @@ img {
   }
 
   .hero {
-    padding-top: 86px;
+    padding-top: 90px;
     padding-bottom: 18px;
   }
 
   .hero-stage {
-    padding-top: 12px;
-    gap: 20px;
+    padding-top: 10px;
+    padding-bottom: 12px;
+    gap: 18px;
   }
 
   .hero-lockup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, 2vh, 18px);
     margin-top: 0;
-    min-height: 310px;
+    min-height: auto;
+  }
+
+  .hero-lockup>* {
+    grid-area: auto;
   }
 
   .hero-title {
-    font-size: clamp(2.25rem, 11.6vw, 5.2rem);
-    transform: translateY(-14%);
+    font-size: clamp(2.4rem, 14.2vw, 5.6rem);
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+    transform: none;
   }
 
   .hero-word-gap {
-    width: clamp(2rem, 12vw, 5.4rem);
+    display: none;
+    width: 0;
   }
 
   .hero-portrait-wrap {
-    width: min(76vw, 345px);
-    max-height: 43vh;
-    transform: translateY(8%);
+    width: min(74vw, 330px);
+    max-height: 38vh;
+    transform: none;
   }
 
   /* Sleek horizontal software balance list on mobile for zero cramping */
@@ -2323,7 +2336,7 @@ img {
   }
 
   .hero-portrait-img {
-    max-height: 44vh;
+    max-height: 38vh;
   }
 
   .hero-meta-row {
