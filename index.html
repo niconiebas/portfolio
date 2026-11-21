@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nicolás Niebas Petruzzelli — Creative Lead · Visual Designer · Branding</title>
+  <meta name="description"
+    content="Portfolio de Nicolás Niebas Petruzzelli — Creative Lead, Sr. Visual Designer, UI Designer & Branding basado en Buenos Aires, Argentina." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" type="image/png" href="assets/NN-Logo.png" />
+
+  <!-- Fonts: Inter (Swiss geometric grotesque) + JetBrains Mono (ASCII, clock & editorial indices) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <!-- Subtle Swiss architectural vertical grid hairlines -->
+  <div class="swiss-grid-lines" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- FLOATING PILL NAVBAR (descends smoothly above all sections & layers) -->
+  <header class="floating-nav-wrap" id="navbar">
+    <nav class="floating-nav" aria-label="Main Navigation">
+      <!-- Circular SVG Logo Container -->
+      <a href="#home" class="nav-logo" aria-label="Nicolás Niebas Petruzzelli — Inicio">
+        <svg viewBox="0 0 371 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g clip-path="url(#nn-logo-clip)">
+            <path
+              d="M262.24 0V73.11L266.35 100.53L270.01 117.44C271.53 126.28 271.53 135.11 270.01 143.94L269.55 145.31L241.22 0H119.72V73.11L123.83 100.53L127.49 117.44C129.01 126.28 129.01 135.11 127.49 143.94L127.03 145.31L98.7 0H0V299.31H107.39V226.2L103.28 199.24L100.08 181.88C98.25 173.35 98.25 164.67 100.08 155.83L100.54 154L128.87 299.31H249.91V226.2L245.8 199.24L242.6 181.88C240.77 173.35 240.77 164.67 242.6 155.83L243.06 154L271.39 299.31H370.09V0H262.25H262.24Z"
+              fill="currentColor" />
+          </g>
+          <defs>
+            <clipPath id="nn-logo-clip">
+              <rect width="370.08" height="299.31" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </a>
+
+      <!-- Center Navigation Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#about" class="nav-link" data-section="about" data-i18n="nav.about">SOBRE MÍ</a></li>
+        <li><a href="#work" class="nav-link" data-section="work" data-i18n="nav.work">MI TRABAJO</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience" data-i18n="nav.experience">EXPERIENCIA</a>
+        </li>
+      </ul>
+
+      <!-- Right Controls: Language Switcher + Email Pill -->
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Selector de idioma">
+          <button type="button" class="lang-btn is-active" data-lang="es" aria-pressed="true">ES</button>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+
+        <button type="button" class="nav-email-pill" id="copy-email-btn" data-email="niebas.n@gmail.com"
+          aria-label="Copiar niebas.n@gmail.com">
+          <span class="email-text">niebas.n@gmail.com</span>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button type="button" class="nav-mobile-toggle" id="mobile-menu-toggle" aria-expanded="false"
+          aria-controls="mobile-drawer" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Dropdown Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer" hidden>
+      <a href="#about" class="mobile-link" data-i18n="nav.about">SOBRE MÍ</a>
+      <a href="#work" class="mobile-link" data-i18n="nav.work">MI TRABAJO</a>
+      <a href="#experience" class="mobile-link" data-i18n="nav.experience">EXPERIENCIA</a>
+      <div class="mobile-drawer-footer">
+        <div class="lang-switch lang-switch--mobile" role="group" aria-label="Selector de idioma">
+          <button type="button" class="lang-btn is-active" data-lang="es" aria-pressed="true">ES</button>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a href="mailto:niebas.n@gmail.com" class="mobile-email-link">niebas.n@gmail.com</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- STICKY SECTION NUMBER STEPPER (follows scroll & inverts black/white per active section) -->
+  <aside class="section-stepper" id="section-stepper" aria-label="Navegación por sección">
+    <a href="#home" class="stepper-item is-active" data-section="home" aria-current="true">
+      <span class="stepper-num">01</span>
+      <span class="stepper-tip" data-i18n="stepper.home">INICIO</span>
+    </a>
+    <a href="#about" class="stepper-item" data-section="about">
+      <span class="stepper-num">02</span>
+      <span class="stepper-tip" data-i18n="stepper.about">SOBRE MÍ</span>
+    </a>
+    <a href="#work" class="stepper-item" data-section="work">
+      <span class="stepper-num">03</span>
+      <span class="stepper-tip" data-i18n="stepper.work">MI TRABAJO</span>
+    </a>
+    <a href="#experience" class="stepper-item" data-section="experience">
+      <span class="stepper-num">04</span>
+      <span class="stepper-tip" data-i18n="stepper.experience">EXPERIENCIA</span>
+    </a>
+  </aside>
+
+  <main>
+    <!-- =====================================================
+         SECTION 01: HERO (#home)
+         ===================================================== -->
+    <section id="home" class="hero">
+      <!-- Fluid Interactive ASCII Background Field -->
+      <canvas id="ascii-bg" class="hero-ascii-bg" aria-hidden="true"></canvas>
+
+      <!-- Subtle vertical side tag -->
+      <div class="hero-vertical-tag" aria-hidden="true">
+        <span>PORTFOLIO — 2026</span>
+      </div>
+
+      <div class="hero-stage">
+        <!-- Clean Elevated Hero Lockup: Split PORT [portrait] FOLIO so T and F peek subtly behind -->
+        <div class="hero-lockup">
+          <h1 class="hero-title hero-title--split" aria-label="Portfolio — Nicolás Niebas Petruzzelli">
+            <span class="hero-word-left">PORT</span><span class="hero-word-gap" aria-hidden="true"></span><span
+              class="hero-word-right">FOLIO</span>
+          </h1>
+
+          <div class="hero-portrait-wrap">
+            <img src="assets/nico_pfp_cutout.png" alt="Nicolás Niebas Petruzzelli" class="hero-portrait-img" width="987"
+              height="920" fetchpriority="high" decoding="async" draggable="false" />
+          </div>
+        </div>
+
+        <!-- Lateral Metadata Columns: Left (Roles + Fading Tools Marquee) & Right (Full Name) -->
+        <div class="hero-meta-row">
+          <div class="hero-meta-left">
+            <span class="meta-kicker" data-i18n="hero.disciplinesLabel">DISCIPLINAS</span>
+            <p class="hero-roles" data-i18n="hero.roles">
+              CREATIVE LEAD — VISUAL DESIGNER — BRANDING
+            </p>
+
+            <!-- Fading Horizontal Tools & Stack Marquee -->
+            <div class="hero-tools-marquee" aria-label="Herramientas de diseño e IA">
+              <div class="hero-tools-track">
+                <div class="hero-tools-group">
+                  <span>Figma</span><i>·</i>
+                  <span>Framer</span><i>·</i>
+                  <span>Photoshop</span><i>·</i>
+                  <span>Illustrator</span><i>·</i>
+                  <span>Blender 3D</span><i>·</i>
+                  <span>Google Slides</span><i>·</i>
+                  <span>Antigravity</span><i>·</i>
+                  <span>Claude AI</span><i>·</i>
+                  <span>Gemini</span><i>·</i>
+                </div>
+                <div class="hero-tools-group" aria-hidden="true">
+                  <span>Figma</span><i>·</i>
+                  <span>Framer</span><i>·</i>
+                  <span>Photoshop</span><i>·</i>
+                  <span>Illustrator</span><i>·</i>
+                  <span>Blender 3D</span><i>·</i>
+                  <span>Google Slides</span><i>·</i>
+                  <span>Antigravity</span><i>·</i>
+                  <span>Claude AI</span><i>·</i>
+                  <span>Gemini</span><i>·</i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-meta-right">
+            <span class="meta-kicker" data-i18n="hero.nameLabel">NOMBRE</span>
+            <p class="hero-name">Nicolás Niebas Petruzzelli</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Swiss Reference Bar (Coordinates, Scroll Cue & Live Buenos Aires Clock) -->
+      <div class="hero-bottom-bar">
+        <div class="swiss-marker">
+          <span class="marker-val">34°36'S · 58°22'W</span>
+          <span class="crosshair" aria-hidden="true"></span>
+        </div>
+
+        <a href="#about" class="hero-scroll-cue" aria-label="Ir a Sobre Mí">
+          <span data-i18n="hero.scroll">EXPLORAR</span>
+          <span class="scroll-line" aria-hidden="true"></span>
+        </a>
+
+        <div class="swiss-marker swiss-marker--clock" aria-live="off">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span class="marker-val clock-val" id="ba-clock">LIVE · BA, AR · --:--:--</span>
+          <span class="crosshair" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 02: ABOUT ME (#about)
+         ===================================================== -->
+    <section id="about" class="section section-about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-index">02</span>
+          <h2 class="section-title" data-i18n="about.title">SOBRE MÍ</h2>
+          <span class="section-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-lead reveal">
+            <p class="about-statement" data-i18n="about.statement">
+              Soy Nicolás Niebas, Creative Lead, Sr. Visual Designer y UI Designer radicado en Belgrano, Buenos Aires.
+            </p>
+            <div class="about-stats">
+              <div class="stat-item">
+                <span class="stat-num">11+</span>
+                <span class="stat-label" data-i18n="about.statYears">Años en diseño</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">40+</span>
+                <span class="stat-label" data-i18n="about.statProjects">Proyectos entregados</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">CABA · AR</span>
+                <span class="stat-label" data-i18n="about.statLocation">Belgrano · Alcance global</span>
+              </div>
+            </div>
+
+            <!-- Generative AI Highlight Block -->
+            <div class="ai-highlight-box">
+              <span class="mini-heading" data-i18n="about.aiHeading">IA GENERATIVA & FLUJO DE TRABAJO</span>
+              <p class="ai-copy" data-i18n="about.aiCopy">
+                Integro herramientas de Inteligencia Artificial Generativa en mi proceso creativo, exploración visual y
+                prototipado digital para potenciar velocidad, iteración y calidad final.
+              </p>
+              <div class="ai-pills">
+                <span class="ai-pill">Antigravity</span>
+                <span class="ai-pill">Claude AI</span>
+                <span class="ai-pill">Gemini</span>
+                <span class="ai-pill" data-i18n="about.aiTag4">IA Generativa</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-body reveal">
+            <p class="body-copy" data-i18n="about.bio1">
+              Acompaño a agencias, estudios internacionales y clientes independientes a construir marcas sólidas y
+              productos digitales claros. Soy autodidacta, meticuloso con cada detalle y disfruto cruzar estrategia con
+              sensibilidad editorial.
+            </p>
+            <p class="body-copy" data-i18n="about.bio2">
+              Mi trabajo abarca contenido gráfico de alto impacto para redes sociales, identidad de marca y diseño UI —
+              combinando tipografía, composición y sistemas visuales pensados para escalar y sentirse naturales.
+            </p>
+
+            <!-- Hard Skills & Soft Skills 2-Column Editorial Matrix -->
+            <div class="skills-matrix">
+              <div class="skills-col">
+                <h3 class="mini-heading" data-i18n="about.hardTitle">HARD SKILLS</h3>
+                <ul class="skills-list" role="list">
+                  <li data-i18n="about.hard1">Prototipado</li>
+                  <li data-i18n="about.hard2">Composición</li>
+                  <li data-i18n="about.hard3">Tipografía & Color</li>
+                  <li data-i18n="about.hard4">Design Systems</li>
+                  <li data-i18n="about.hard5">Material Design</li>
+                  <li data-i18n="about.hard6">Diseño Centrado en el Usuario</li>
+                  <li data-i18n="about.hard7">Metodologías Ágiles</li>
+                </ul>
+              </div>
+
+              <div class="skills-col">
+                <h3 class="mini-heading" data-i18n="about.softTitle">SOFT SKILLS</h3>
+                <ul class="skills-list" role="list">
+                  <li data-i18n="about.soft1">Trabajo en equipo</li>
+                  <li data-i18n="about.soft2">Gran facilidad de comunicación</li>
+                  <li data-i18n="about.soft3">Facilidad para relacionarse con personas</li>
+                  <li data-i18n="about.soft4">Muy buena atención al detalle</li>
+                  <li data-i18n="about.soft5">Adaptación ágil a los cambios</li>
+                  <li data-i18n="about.soft6">Aprendizaje constante e independiente</li>
+                  <li data-i18n="about.soft7">Actitud positiva</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Software Usage Balance (Editorial rounded vertical meter grid) -->
+        <div class="software-block reveal">
+          <div class="software-head">
+            <span class="mini-heading" data-i18n="about.softwareTitle">USO DE SOFTWARE</span>
+            <p class="software-desc" data-i18n="about.softwareDesc">
+              Balance de experiencia y dominio en los programas de diseño que utilizo a diario.
+            </p>
+          </div>
+
+          <div class="software-grid" role="list" aria-label="Nivel de experiencia en software de diseño">
+            <div class="software-item" role="listitem" style="--level: 96%;">
+              <span class="software-pct">96%</span>
+              <div class="software-bar-track" aria-hidden="true"><span class="software-bar-fill"></span></div>
+              <div class="software-icon-wrap"><img src="assets/software_icons/photoshop.png" alt="Adobe Photoshop"
+                  width="40" height="40" loading="lazy" decoding="async" /></div>
+              <span class="software-name">Photoshop</span>
+            </div>
+
+            <div class="software-item" role="listitem" style="--level: 92%;">
+              <span class="software-pct">92%</span>
+              <div class="software-bar-track" aria-hidden="true"><span class="software-bar-fill"></span></div>
+              <div class="software-icon-wrap"><img src="assets/software_icons/figma.png" alt="Figma" width="40"
+                  height="40" loading="lazy" decoding="async" /></div>
+              <span class="software-name">Figma</span>
+            </div>
+
+            <div class="software-item" role="listitem" style="--level: 90%;">
+              <span class="software-pct">90%</span>
+              <div class="software-bar-track" aria-hidden="true"><span class="software-bar-fill"></span></div>
+              <div class="software-icon-wrap"><img src="assets/software_icons/illustrator.png" alt="Adobe Illustrator"
+                  width="40" height="40" loading="lazy" decoding="async" /></div>
+              <span class="software-name">Illustrator</span>
+            </div>
+
+            <div class="software-item" role="listitem" style="--level: 90%;">
+              <span class="software-pct">90%</span>
+              <div class="software-bar-track" aria-hidden="true"><span class="software-bar-fill"></span></div>
+              <div class="software-icon-wrap"><img src="assets/software_icons/lightroom.jpg" alt="Adobe Lightroom"
+                  width="40" height="40" loading="lazy" decoding="async" /></div>
+              <span class="software-name">Lightroom</span>
+            </div>
+
+            <div class="software-item" role="listitem" style="--level: 82%;">
+              <span class="software-pct">82%</span>
+              <div class="software-bar-track" aria-hidden="true"><span class="software-bar-fill"></span></div>
+              <div class="software-icon-wrap"><img src="assets/software_icons/framer.png" alt="Framer" width="40"
+                  height="40" loading="lazy" decoding="async" /></div>
+              <span class="software-name">Framer</span>
+            </div>
+
+            <div class="software-item" role="listitem" style="--level: 74%;">
+              <span class="software-pct">74%</span>
+              <div class="software-bar-track" aria-hidden="true"><span class="software-bar-fill"></span></div>
+              <div class="software-icon-wrap"><img src="assets/software_icons/premierepro.png" alt="Adobe Premiere Pro"
+                  width="40" height="40" loading="lazy" decoding="async" /></div>
+              <span class="software-name">Premiere Pro</span>
+            </div>
+
+            <div class="software-item" role="listitem" style="--level: 60%;">
+              <span class="software-pct">60%</span>
+              <div class="software-bar-track" aria-hidden="true"><span class="software-bar-fill"></span></div>
+              <div class="software-icon-wrap"><img src="assets/software_icons/aftereffects.png"
+                  alt="Adobe After Effects" width="40" height="40" loading="lazy" decoding="async" /></div>
+              <span class="software-name">After Effects</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 03: MY WORK (#work)
+         Tabs: TODOS -> SOCIAL MEDIA -> BRANDING -> UX/UI & WEB
+         ===================================================== -->
+    <section id="work" class="section section-work">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-index">03</span>
+          <h2 class="section-title" data-i18n="work.title">MI TRABAJO</h2>
+          <span class="section-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="work-toolbar reveal">
+          <p class="work-intro" data-i18n="work.intro">
+            Un recorrido por las tres disciplinas que definen mi trabajo: redes sociales, identidad de marca y diseño
+            UX/UI.
+          </p>
+          <div class="filter-group" role="tablist" aria-label="Categorías de trabajo">
+            <button type="button" class="filter-btn is-active" id="tab-all" data-tab="all" role="tab"
+              aria-selected="true" aria-controls="panel-all" data-i18n="work.tabAll">TODOS</button>
+            <button type="button" class="filter-btn" id="tab-social" data-tab="social" role="tab" aria-selected="false"
+              aria-controls="panel-social" data-i18n="work.tabSocial">SOCIAL MEDIA</button>
+            <button type="button" class="filter-btn" id="tab-branding" data-tab="branding" role="tab"
+              aria-selected="false" aria-controls="panel-branding" data-i18n="work.tabBranding">BRANDING</button>
+            <button type="button" class="filter-btn" id="tab-uxui" data-tab="uxui" role="tab" aria-selected="false"
+              aria-controls="panel-uxui" data-i18n="work.tabUxui">UX/UI & WEB</button>
+          </div>
+        </div>
+
+        <!-- TAB PANEL 0: TODOS (3-Pillar Curated Overview linking into each discipline) -->
+        <div class="work-panel is-active" id="panel-all" role="tabpanel" aria-labelledby="tab-all">
+          <div class="overview-grid">
+            <!-- Pillar 01: Social Media -->
+            <article class="overview-card" data-jump-tab="social" tabindex="0">
+              <div class="overview-visual overview-visual--photo">
+                <img src="assets/social_media_optimized/sm-14.jpg" alt="Diseño gráfico para redes sociales — Devoted"
+                  width="608" height="760" loading="lazy" decoding="async" />
+              </div>
+              <div class="overview-body">
+                <span class="meta-kicker" data-i18n="work.allSocialKicker">01 · SOCIAL MEDIA & GRAPHICS</span>
+                <h3 class="overview-title" data-i18n="work.allSocialTitle">Diseño para Redes Sociales</h3>
+                <p class="overview-desc" data-i18n="work.allSocialDesc">
+                  Creo piezas visuales de alto impacto, carruseles editoriales, campañas para la industria gaming y arte
+                  conceptual digital pensados para destacar en el feed y potenciar cada mensaje.
+                </p>
+                <span class="overview-cta" data-i18n="work.allSocialCta">Explorar 36 piezas →</span>
+              </div>
+            </article>
+
+            <!-- Pillar 02: Branding (Featured Logo: One Percent) -->
+            <article class="overview-card" data-jump-tab="branding" tabindex="0">
+              <div class="overview-visual overview-visual--logo">
+                <img src="assets/branding_logos/One-Percent-Logo-Final.png" alt="One Percent — Identidad Visual"
+                  class="overview-logo-img" loading="lazy" decoding="async" />
+              </div>
+              <div class="overview-body">
+                <span class="meta-kicker" data-i18n="work.allBrandingKicker">02 · IDENTIDAD VISUAL</span>
+                <h3 class="overview-title" data-i18n="work.allBrandingTitle">Branding & Logotipos</h3>
+                <p class="overview-desc" data-i18n="work.allBrandingDesc">
+                  Diseño marcas, logotipos y sistemas visuales a medida para startups, comercios e instituciones —
+                  buscando siempre sintetizar la esencia real de cada negocio en una identidad memorable.
+                </p>
+                <span class="overview-cta" data-i18n="work.allBrandingCta">Explorar 13 logos →</span>
+              </div>
+            </article>
+
+            <!-- Pillar 03: UX/UI & Web (Featured Screen: Nike x Digimon Figma Prototype Cover) -->
+            <article class="overview-card" data-jump-tab="uxui" tabindex="0">
+              <div class="overview-visual overview-visual--photo">
+                <img src="assets/uxui_web_optimized/nike_cover_figma.jpg" alt="Nike x Digimon — UX/UI & Web Prototype"
+                  width="1440" height="804" loading="lazy" decoding="async" />
+              </div>
+              <div class="overview-body">
+                <span class="meta-kicker" data-i18n="work.allUxuiKicker">03 · PRODUCTO DIGITAL</span>
+                <h3 class="overview-title" data-i18n="work.allUxuiTitle">UX/UI & Diseño Web</h3>
+                <p class="overview-desc" data-i18n="work.allUxuiDesc">
+                  Diseño aplicaciones móviles, dashboards y sitios web interactivos combinando identidad visual,
+                  tipografía, color y sistemas de componentes claros y fáciles de usar.
+                </p>
+                <span class="overview-cta" data-i18n="work.allUxuiCta">Explorar 6 proyectos →</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- TAB PANEL 1: SOCIAL MEDIA (Fading-edge draggable & arrow carousel — 36 pieces) -->
+        <div class="work-panel" id="panel-social" role="tabpanel" aria-labelledby="tab-social" hidden>
+          <div class="panel-subhead">
+            <div>
+              <h3 class="panel-heading" data-i18n="work.socialHeading">Social Media & Graphic Design</h3>
+              <p class="panel-desc" data-i18n="work.socialDesc">
+                Campañas visuales, spotlights de artistas, piezas para gaming y arte conceptual. Deslizá con las flechas
+                o arrastrá con el mouse.
+              </p>
+            </div>
+
+            <div class="carousel-controls-wrap">
+              <span class="carousel-hint" data-i18n="work.dragHint">Arrastrá o usá las flechas</span>
+              <div class="carousel-arrows-pill" role="group" aria-label="Controles de galería">
+                <button type="button" class="carousel-arrow-btn" id="social-prev" aria-label="Anterior">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M15 18l-6-6 6-6" />
+                  </svg>
+                </button>
+                <span class="carousel-counter" id="social-counter">01 / 36</span>
+                <button type="button" class="carousel-arrow-btn" id="social-next" aria-label="Siguiente">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-carousel-viewport">
+            <div class="social-carousel-track" id="social-track" tabindex="0"
+              aria-label="Galería deslizable de Social Media">
+              <!-- Populated dynamically from js/gallery-data.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB PANEL 2: BRANDING (Open white-background Swiss numbered logo grid, uniform sizes) -->
+        <div class="work-panel" id="panel-branding" role="tabpanel" aria-labelledby="tab-branding" hidden>
+          <div class="panel-subhead">
+            <div>
+              <h3 class="panel-heading" data-i18n="work.brandingHeading">Identidad & Logotipos</h3>
+              <p class="panel-desc" data-i18n="work.brandingDesc">
+                Logotipos creados para e-commerce, tecnología, gastronomía, cultura e instituciones — cada marca
+                construida a medida.
+              </p>
+            </div>
+            <span class="panel-count-badge">13 LOGOS</span>
+          </div>
+
+          <div class="branding-grid" id="branding-grid">
+            <!-- Populated dynamically from js/gallery-data.js -->
+          </div>
+        </div>
+
+        <!-- TAB PANEL 3: UX/UI & WEB (Organized by real projects with clickable screens -> Modal) -->
+        <div class="work-panel" id="panel-uxui" role="tabpanel" aria-labelledby="tab-uxui" hidden>
+          <div class="panel-subhead">
+            <div>
+              <h3 class="panel-heading" data-i18n="work.uxuiHeading">UX/UI & Diseño Web</h3>
+              <p class="panel-desc" data-i18n="work.uxuiDesc">
+                Proyectos organizados por producto. Tocá cualquier pantalla para ver el detalle completo del caso y las
+                herramientas utilizadas.
+              </p>
+            </div>
+            <span class="panel-count-badge">06 PROJECTS</span>
+          </div>
+
+          <div class="uxui-projects-list" id="uxui-projects-list">
+            <!-- Populated dynamically from js/gallery-data.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 04: EXPERIENCE (#experience)
+         ===================================================== -->
+    <section id="experience" class="section section-experience">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-index">04</span>
+          <h2 class="section-title" data-i18n="experience.title">EXPERIENCIA</h2>
+          <span class="section-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="exp-list" role="list">
+          <div class="exp-row reveal" role="listitem">
+            <span class="exp-period" data-i18n="experience.e0.period">Dic 2024 — Actualidad</span>
+            <div class="exp-role-col">
+              <h3 class="exp-role" data-i18n="experience.e0.role">Senior Visual Designer</h3>
+              <span class="exp-company">Devoted Studios / Devoted Fusion</span>
+            </div>
+            <ul class="exp-bullets">
+              <li data-i18n="experience.e0.b1">Diseño gráfico para redes sociales y liderazgo de proyectos junto al
+                equipo.</li>
+              <li data-i18n="experience.e0.b2">Diseño UI para el sitio web y la plataforma de la compañía, colaborando
+                con el equipo UX/UI y Project Manager.</li>
+              <li data-i18n="experience.e0.b3">Presentaciones en Google Slides para proyectos, documentación interna e
+                IPs.</li>
+            </ul>
+          </div>
+
+          <div class="exp-row reveal" role="listitem">
+            <span class="exp-period" data-i18n="experience.e1.period">Ene 2015 — Actualidad</span>
+            <div class="exp-role-col">
+              <h3 class="exp-role" data-i18n="experience.e1.role">Sr. Freelance Graphic & UI Designer</h3>
+              <span class="exp-company" data-i18n="experience.e1.company">Independiente</span>
+            </div>
+            <ul class="exp-bullets">
+              <li data-i18n="experience.e1.b1">Diseño de logotipos, piezas editoriales, brochures y materiales de
+                marketing para diversos clientes.</li>
+              <li data-i18n="experience.e1.b2">Diseño UI creando prototipos responsivos para web y apps, componentes con
+                múltiples estados y animaciones.</li>
+              <li data-i18n="experience.e1.b3">Gestión de producto end-to-end: investigación, desarrollo y optimización.
+              </li>
+            </ul>
+          </div>
+
+          <div class="exp-row reveal" role="listitem">
+            <span class="exp-period" data-i18n="experience.e2.period">Feb 2024 — Jun 2024</span>
+            <div class="exp-role-col">
+              <h3 class="exp-role" data-i18n="experience.e2.role">UI Designer</h3>
+              <span class="exp-company">Ducat Project</span>
+            </div>
+            <ul class="exp-bullets">
+              <li data-i18n="experience.e2.b1">Diseño UI para web y WebApp de proyecto crypto vault, incluyendo el
+                Design System completo.</li>
+              <li data-i18n="experience.e2.b2">Creación de componentes, sistema de color y tipografía alineados a la
+                identidad de marca.</li>
+              <li data-i18n="experience.e2.b3">Contenido gráfico para redes sociales.</li>
+            </ul>
+          </div>
+
+          <div class="exp-row reveal" role="listitem">
+            <span class="exp-period" data-i18n="experience.e3.period">Feb 2022 — Ago 2022</span>
+            <div class="exp-role-col">
+              <h3 class="exp-role" data-i18n="experience.e3.role">Semi Sr. Graphic Designer</h3>
+              <span class="exp-company">Dlized Consulting</span>
+            </div>
+            <ul class="exp-bullets">
+              <li data-i18n="experience.e3.b1">Diseño gráfico para redes sociales (principalmente Twitter/X) orientado
+                al ecosistema cripto.</li>
+              <li data-i18n="experience.e3.b2">Edición de videos cortos para YouTube y LinkedIn.</li>
+            </ul>
+          </div>
+
+          <div class="exp-row reveal" role="listitem">
+            <span class="exp-period" data-i18n="experience.e4.period">Sep 2020 — Feb 2022</span>
+            <div class="exp-role-col">
+              <h3 class="exp-role" data-i18n="experience.e4.role">Semi Sr. Graphic Designer</h3>
+              <span class="exp-company">Raster Agency</span>
+            </div>
+            <ul class="exp-bullets">
+              <li data-i18n="experience.e4.b1">Contenido gráfico para redes sociales, diseño de presentaciones y edición
+                de reels para clientes.</li>
+              <li data-i18n="experience.e4.b2">Gráfica impresa: flyers, pósters de eventos, packaging y piezas
+                promocionales.</li>
+            </ul>
+          </div>
+
+          <div class="exp-row reveal" role="listitem">
+            <span class="exp-period" data-i18n="experience.e5.period">Ago 2018 — Sep 2021</span>
+            <div class="exp-role-col">
+              <h3 class="exp-role" data-i18n="experience.e5.role">Graphic Designer</h3>
+              <span class="exp-company" data-i18n="experience.e5.company">Municipalidad de Plottier</span>
+            </div>
+            <ul class="exp-bullets">
+              <li data-i18n="experience.e5.b1">Creación de branding para áreas internas municipales y campañas de
+                ciudad.</li>
+              <li data-i18n="experience.e5.b2">Contenido institucional impreso y digital: eventos, folletería,
+                certificados, flyers y redes sociales.</li>
+            </ul>
+          </div>
+
+          <div class="exp-row reveal" role="listitem">
+            <span class="exp-period" data-i18n="experience.e6.period">Mar 2015 — Dic 2015</span>
+            <div class="exp-role-col">
+              <h3 class="exp-role" data-i18n="experience.e6.role">Auxiliar Docente en Diseño Editorial</h3>
+              <span class="exp-company" data-i18n="experience.e6.company">Cátedra de Diseño Editorial</span>
+            </div>
+            <ul class="exp-bullets">
+              <li data-i18n="experience.e6.b1">Asistencia a estudiantes en proyectos editoriales, grillas de
+                diagramación y estilos tipográficos.</li>
+              <li data-i18n="experience.e6.b2">Corrección de exámenes finales junto al docente titular.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Courses & Education Strip -->
+        <div class="courses-strip reveal">
+          <span class="mini-heading" data-i18n="experience.coursesLabel">FORMACIÓN & CURSOS</span>
+          <div class="courses-grid">
+            <div class="course-card">
+              <span class="course-year">2024</span>
+              <span class="course-name" data-i18n="experience.c0">WordPress — Coderhouse</span>
+            </div>
+            <div class="course-card">
+              <span class="course-year">2023</span>
+              <span class="course-name" data-i18n="experience.c1">Prototyping — Coderhouse</span>
+            </div>
+            <div class="course-card">
+              <span class="course-year">2022</span>
+              <span class="course-name" data-i18n="experience.c2">UX/UI Design — Coderhouse</span>
+            </div>
+            <div class="course-card">
+              <span class="course-year">2022</span>
+              <span class="course-name" data-i18n="experience.c3">3D Modeling (Blender) — Domestika</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================
+       FOOTER / CONTACT
+       ===================================================== -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-top reveal">
+        <div class="footer-cta-col">
+          <span class="meta-kicker" data-i18n="footer.kicker">CONTACTO DIRECTO</span>
+          <h2 class="footer-headline" data-i18n="footer.headline">¿Hablamos sobre tu próximo proyecto?</h2>
+        </div>
+        <div class="footer-email-col">
+          <a href="mailto:niebas.n@gmail.com" class="footer-email-big">niebas.n@gmail.com ↗</a>
+          <button type="button" class="footer-copy-link" id="footer-copy-btn" data-email="niebas.n@gmail.com"
+            data-i18n="footer.copyBtn">
+            Copiar correo electrónico
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">© <span id="year-now">2026</span> Nicolás Niebas Petruzzelli</span>
+        <div class="footer-socials">
+          <a href="https://www.behance.net/niconiebas" target="_blank" rel="noopener noreferrer">Behance</a>
+          <a href="https://www.linkedin.com/in/nicolasniebas/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.instagram.com/niconiebasph" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#home" class="back-to-top" data-i18n="footer.backTop">↑ Inicio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Project Detail Modal (UX/UI Cases with Screen Gallery + Tools Used) -->
+  <div class="modal-backdrop" id="project-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card modal-card--wide">
+      <button type="button" class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
+
+      <div class="modal-media-stage" id="modal-media-stage">
+        <img src="" alt="" id="modal-preview-img" />
+        <div class="modal-thumbs" id="modal-thumbs"></div>
+      </div>
+
+      <div class="modal-content-body">
+        <span class="modal-eyebrow" id="modal-eyebrow">UX/UI · 2025</span>
+        <h3 class="modal-title" id="modal-title">PROJECT TITLE</h3>
+        <p class="modal-body" id="modal-body"></p>
+
+        <div class="modal-meta-grid">
+          <div>
+            <span class="mini-heading" data-i18n="work.toolsUsedLabel">HERRAMIENTAS UTILIZADAS</span>
+            <ul class="discipline-tags discipline-tags--solid" id="modal-tools" role="list"></ul>
+          </div>
+          <div>
+            <span class="mini-heading" data-i18n="work.deliverablesLabel">ENTREGABLES</span>
+            <ul class="discipline-tags" id="modal-tags" role="list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Lightbox Modal (Social Media Pieces) -->
+  <div class="lightbox-backdrop" id="image-lightbox" hidden role="dialog" aria-modal="true" aria-label="Vista ampliada">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Cerrar">✕</button>
+    <button type="button" class="lightbox-nav lightbox-nav--prev" id="lightbox-prev" aria-label="Anterior">←</button>
+    <figure class="lightbox-figure">
+      <img src="" alt="" id="lightbox-img" />
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button type="button" class="lightbox-nav lightbox-nav--next" id="lightbox-next" aria-label="Siguiente">→</button>
+  </div>
+
+  <!-- Toast Notification (Copy Email) -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/gallery-data.js"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/ascii-engine.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
