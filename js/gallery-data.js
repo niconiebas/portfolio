@@ -1,6 +1,6 @@
 /* ==========================================================================
    CURATED PORTFOLIO ASSETS MANIFEST
-   - 12 Social Media Graphics (10 optimized JPGs + 2 AVIFs, exact ratios)
+   - 28 Social Media Graphics (26 optimized JPGs + 2 AVIFs, exact ratios)
    - 13 Branding Logos (optically normalized scale per logo, #161616 treatment)
    - 5 UX/UI & Web Projects (Nike Prototype, SilverSwap, Dando, Guaurdería, miBondi)
    ========================================================================== */
@@ -23,6 +23,22 @@ window.PORTFOLIO_ASSETS = {
   ],
 
   socialMedia: [
+    { src: 'assets/social_media_optimized/sm-35.jpg', title: 'Caleta — Campaña Sky 01', w: 760, h: 760 },
+    { src: 'assets/social_media_optimized/sm-36.jpg', title: 'Caleta — Campaña Sky 02', w: 760, h: 760 },
+    { src: 'assets/social_media_optimized/sm-37.jpg', title: 'Caleta — Saltá al Desafío', w: 760, h: 760 },
+    { src: 'assets/social_media_optimized/sm-38.jpg', title: 'Caleta — Social Media 01', w: 760, h: 760 },
+    { src: 'assets/social_media_optimized/sm-39.jpg', title: 'Caleta — Social Media 02', w: 760, h: 760 },
+    { src: 'assets/social_media_optimized/sm-40.jpg', title: 'Avanzá hacia tu Futuro — Campaña Social', w: 760, h: 760 },
+    { src: 'assets/social_media_optimized/sm-41.jpg', title: 'Emsculpt — Flyer Informativo', w: 760, h: 760 },
+    { src: 'assets/social_media_optimized/sm-42.jpg', title: 'Emsculpt — Próximamente', w: 760, h: 760 },
+    { src: 'assets/social_media_optimized/sm-43.jpg', title: 'Baby Botox — Evento Especial', w: 760, h: 760 },
+    { src: 'assets/social_media_optimized/sm-44.jpg', title: 'San Valentín — Campaña 01', w: 760, h: 760 },
+    { src: 'assets/social_media_optimized/sm-45.jpg', title: 'San Valentín — Campaña 02', w: 760, h: 760 },
+    { src: 'assets/social_media_optimized/sm-46.jpg', title: 'Beneficios del Ghee — Carrusel', w: 760, h: 760 },
+    { src: 'assets/social_media_optimized/sm-47.jpg', title: 'Recetas con Ghee — Laddubar', w: 760, h: 760 },
+    { src: 'assets/social_media_optimized/sm-48.jpg', title: 'Sudanta — Pack Familiar', w: 760, h: 760 },
+    { src: 'assets/social_media_optimized/sm-49.jpg', title: 'Newsletter — Crema para Manos', w: 507, h: 760 },
+    { src: 'assets/social_media_optimized/sm-50.jpg', title: 'PAS — Social Media Visual', w: 760, h: 760 },
     { src: 'assets/social_media_optimized/sm-16.jpg', title: '3D Design on Figma — Social Visual', w: 608, h: 760 },
     { src: 'assets/social_media_optimized/sm-17.jpg', title: 'Connect Your Wallet — Crypto Social', w: 608, h: 760 },
     { src: 'assets/social_media_optimized/sm-13.jpg', title: 'Creer Crear Crecer — Social Visual', w: 608, h: 760 },

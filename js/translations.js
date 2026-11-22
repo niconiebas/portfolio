@@ -70,7 +70,7 @@ window.TRANSLATIONS = {
       allSocialTitle: 'Diseño para Redes Sociales',
       allSocialDesc:
         'Creo piezas visuales de alto impacto, campañas digitales, gráfica Web3 y arte conceptual pensados para destacar en el feed y potenciar cada mensaje.',
-      allSocialCta: 'Explorar 12 piezas →',
+      allSocialCta: 'Explorar 28 piezas →',
 
       allBrandingKicker: '02 · IDENTIDAD VISUAL',
       allBrandingTitle: 'Branding & Logotipos',
@@ -267,7 +267,7 @@ window.TRANSLATIONS = {
       allSocialTitle: 'Social Media Design',
       allSocialDesc:
         'High-impact visual campaigns, Web3 & NFT graphics, institutional pieces, and digital concept art crafted to stop the scroll and elevate every brand message.',
-      allSocialCta: 'Explore 12 pieces →',
+      allSocialCta: 'Explore 28 pieces →',
 
       allBrandingKicker: '02 · VISUAL IDENTITY',
       allBrandingTitle: 'Branding & Logotypes',
