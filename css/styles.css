@@ -525,7 +525,7 @@ img {
 
 .hero-word-gap {
   display: inline-block;
-  width: clamp(5rem, 18.5vw, 17.5rem);
+  width: clamp(4.2rem, 15.6vw, 14.8rem);
   flex-shrink: 0;
 }
 
@@ -546,7 +546,7 @@ img {
   max-height: min(64vh, 560px);
   object-fit: contain;
   display: block;
-  transform: translate(13.5%, 4%);
+  transform: translate(10.5%, 4%);
   filter: drop-shadow(0 20px 34px rgba(22, 22, 22, 0.14));
   mask-image: linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
