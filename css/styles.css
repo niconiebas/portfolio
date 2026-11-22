@@ -533,9 +533,9 @@ img {
 .hero-portrait-wrap {
   position: relative;
   z-index: 2;
-  width: clamp(300px, 38vw, 530px);
-  max-height: min(60vh, 540px);
-  transform: translateY(4%);
+  width: clamp(330px, 42vw, 590px);
+  max-height: min(65vh, 580px);
+  transform: translate(5%, 4%);
   display: grid;
   place-items: center;
 }
@@ -543,7 +543,7 @@ img {
 .hero-portrait-img {
   width: 100%;
   height: auto;
-  max-height: min(60vh, 540px);
+  max-height: min(65vh, 580px);
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 20px 34px rgba(22, 22, 22, 0.14));
@@ -2280,8 +2280,8 @@ img {
   }
 
   .hero-portrait-wrap {
-    width: min(74vw, 330px);
-    max-height: 38vh;
+    width: min(82vw, 360px);
+    max-height: 42vh;
     transform: none;
   }
 
@@ -2336,7 +2336,7 @@ img {
   }
 
   .hero-portrait-img {
-    max-height: 38vh;
+    max-height: 42vh;
   }
 
   .hero-meta-row {
