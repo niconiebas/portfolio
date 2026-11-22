@@ -1,8 +1,8 @@
 /* ==========================================================================
    CURATED PORTFOLIO ASSETS MANIFEST
-   - 36 Social Media Graphics (34 optimized JPGs + 2 AVIFs, exact ratios)
+   - 12 Social Media Graphics (10 optimized JPGs + 2 AVIFs, exact ratios)
    - 13 Branding Logos (optically normalized scale per logo, #161616 treatment)
-   - 6 UX/UI & Web Projects (Nike Prototype, Freelance Report, SilverSwap, Dando, Guaurdería, miBondi)
+   - 5 UX/UI & Web Projects (Nike Prototype, SilverSwap, Dando, Guaurdería, miBondi)
    ========================================================================== */
 
 window.PORTFOLIO_ASSETS = {
@@ -23,33 +23,9 @@ window.PORTFOLIO_ASSETS = {
   ],
 
   socialMedia: [
-    { src: 'assets/social_media_optimized/sm-01.jpg', title: 'Overwatch Lucio Skin — Devoted', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-02.jpg', title: 'LiveOps Article — Devoted Fusion', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-03.jpg', title: 'Best Devoted Promoter', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-04.jpg', title: 'Kid A Mnesia — Game Engines Case', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-05.jpg', title: 'Portfolio Spotlight — François Bourdin 01', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-06.jpg', title: 'Portfolio Spotlight — François Bourdin 02', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-07.jpg', title: 'Portfolio Spotlight — François Bourdin 03', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-08.jpg', title: 'Portfolio Spotlight — François Bourdin 04', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-09.jpg', title: 'Portfolio Spotlight — François Bourdin 05', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-10.jpg', title: 'Portfolio Spotlight — François Bourdin 06', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-11.jpg', title: 'Portfolio Spotlight — François Bourdin 07', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-12.jpg', title: 'Case Study Mobile Games', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-18.jpg', title: 'Fusion Match — Design', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-19.jpg', title: 'Portfolio Highlight — Mauricio Ataíde 01', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-20.jpg', title: 'Portfolio Highlight — Mauricio Ataíde 02', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-21.jpg', title: 'Portfolio Highlight — Mauricio Ataíde 03', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-22.jpg', title: 'Portfolio Highlight — Mauricio Ataíde 04', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-23.jpg', title: 'Portfolio Highlight — Mauricio Ataíde 05', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-24.jpg', title: 'Portfolio Highlight — Mauricio Ataíde 06', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-25.jpg', title: 'Portfolio Highlight — Mauricio Ataíde 07', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-26.jpg', title: 'Holidays Campaign — Devoted', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-28.jpg', title: 'Top Artists — Devoted Fusion 01', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-29.jpg', title: 'Top Artists — Devoted Fusion 02', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-32.jpg', title: 'Devoted Campaign — Editorial', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-16.jpg', title: 'Social Campaign — Frame 03', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-17.jpg', title: 'Social Campaign — Frame 43', w: 608, h: 760 },
-    { src: 'assets/social_media_optimized/sm-13.jpg', title: 'Crecer — Social Visual', w: 608, h: 760 },
+    { src: 'assets/social_media_optimized/sm-16.jpg', title: '3D Design on Figma — Social Visual', w: 608, h: 760 },
+    { src: 'assets/social_media_optimized/sm-17.jpg', title: 'Connect Your Wallet — Crypto Social', w: 608, h: 760 },
+    { src: 'assets/social_media_optimized/sm-13.jpg', title: 'Creer Crear Crecer — Social Visual', w: 608, h: 760 },
     { src: 'assets/social_media_graphics/silverswap.avif', title: 'SilverSwap — Social Media Visual' },
     { src: 'assets/social_media_graphics/pixelapes.avif', title: 'Pixel Apes — Social Media Visual' },
     { src: 'assets/social_media_optimized/sm-14.jpg', title: 'NFT Collection — Flyer Dark', w: 760, h: 760 },
@@ -63,18 +39,8 @@ window.PORTFOLIO_ASSETS = {
 
   uxuiProjects: [
     {
-      key: 'report',
-      num: '01',
-      year: '2025',
-      tools: ['Figma', 'Framer', 'Photoshop', 'Visual Design'],
-      images: [
-        { src: 'assets/uxui_web/freelancereport1.avif', alt: 'State of Video Game Freelancing 2025 — Cover & Overview' },
-        { src: 'assets/uxui_web/freelancereport2.avif', alt: 'State of Video Game Freelancing 2025 — Insights & Data' }
-      ]
-    },
-    {
       key: 'nike',
-      num: '02',
+      num: '01',
       year: '2025',
       tools: ['Figma', 'Photoshop', 'Generative AI', 'Prototyping'],
       images: [
@@ -85,7 +51,7 @@ window.PORTFOLIO_ASSETS = {
     },
     {
       key: 'silverswap',
-      num: '03',
+      num: '02',
       year: '2024',
       tools: ['Figma', 'Illustrator', 'Photoshop', 'Web3 UI'],
       images: [
@@ -95,7 +61,7 @@ window.PORTFOLIO_ASSETS = {
     },
     {
       key: 'dando',
-      num: '04',
+      num: '03',
       year: '2023',
       tools: ['Figma', 'Illustrator', 'Prototyping', 'Mobile UI'],
       images: [
@@ -106,7 +72,7 @@ window.PORTFOLIO_ASSETS = {
     },
     {
       key: 'guaurderia',
-      num: '05',
+      num: '04',
       year: '2023',
       tools: ['Figma', 'Illustrator', 'Photoshop', 'UX Research'],
       images: [
@@ -117,7 +83,7 @@ window.PORTFOLIO_ASSETS = {
     },
     {
       key: 'mibondi',
-      num: '06',
+      num: '05',
       year: '2022',
       tools: ['Figma', 'Illustrator', 'UX/UI Design', 'Prototyping'],
       images: [
