@@ -202,34 +202,42 @@ img {
 .lang-switch {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  padding: 0 8px 0 10px;
-  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  gap: 2px;
+  padding: 3px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
 }
 
 .lang-btn {
-  padding: 4px 5px;
-  color: rgba(255, 255, 255, 0.48);
-  font-weight: 500;
-  transition: color 0.2s ease;
-  border-radius: 4px;
+  min-width: 34px;
+  height: 30px;
+  padding: 0 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: color 0.2s ease, background-color 0.25s var(--ease-out);
 }
 
 .lang-btn:hover {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--bg);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .lang-btn.is-active {
-  color: var(--bg);
+  background: var(--bg);
+  color: var(--ink);
   font-weight: 700;
 }
 
 .lang-sep {
-  color: rgba(255, 255, 255, 0.26);
-  user-select: none;
+  display: none;
 }
 
 .nav-email-pill {
@@ -2186,7 +2194,6 @@ img {
 @media (max-width: 820px) {
 
   .nav-links,
-  .floating-nav .lang-switch,
   .nav-email-pill {
     display: none;
   }
@@ -2198,6 +2205,29 @@ img {
   .floating-nav {
     width: min(360px, 100%);
     padding: 6px 8px 6px 6px;
+  }
+
+  .nav-right {
+    gap: 8px;
+  }
+
+  .floating-nav .lang-btn {
+    min-width: 38px;
+    height: 34px;
+    font-size: 0.74rem;
+  }
+
+  .lang-switch--mobile {
+    display: none;
+  }
+
+  .mobile-drawer-footer {
+    justify-content: center;
+  }
+
+  .mobile-email-link {
+    width: 100%;
+    text-align: center;
   }
 
   .section-stepper {
