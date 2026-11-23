@@ -69,8 +69,8 @@ window.TRANSLATIONS = {
       allSocialKicker: '01 · SOCIAL MEDIA & GRAPHICS',
       allSocialTitle: 'Diseño para Redes Sociales',
       allSocialDesc:
-        'Creo piezas visuales de alto impacto, campañas digitales, gráfica Web3 y arte conceptual pensados para destacar en el feed y potenciar cada mensaje.',
-      allSocialCta: 'Explorar 28 piezas →',
+        'Creo piezas visuales de alto impacto, carruseles editoriales, campañas para la industria gaming y arte conceptual digital pensados para destacar en el feed y potenciar cada mensaje.',
+      allSocialCta: 'Explorar 52 piezas →',
 
       allBrandingKicker: '02 · IDENTIDAD VISUAL',
       allBrandingTitle: 'Branding & Logotipos',
@@ -81,11 +81,11 @@ window.TRANSLATIONS = {
       allUxuiKicker: '03 · PRODUCTO DIGITAL',
       allUxuiTitle: 'UX/UI & Diseño Web',
       allUxuiDesc:
-        'Diseño aplicaciones móviles, prototipos interactivos y sitios web combinando identidad visual, tipografía, color y sistemas de componentes claros y fáciles de usar.',
-      allUxuiCta: 'Explorar 5 proyectos →',
+        'Diseño aplicaciones móviles, reportes interactivos y sitios web combinando identidad visual, tipografía, color y sistemas de componentes claros y fáciles de usar.',
+      allUxuiCta: 'Explorar 6 proyectos →',
 
       socialHeading: 'Social Media & Graphic Design',
-      socialDesc: 'Campañas visuales, diseño para redes, gráfica Web3 y arte conceptual. Deslizá con las flechas o arrastrá con el mouse.',
+      socialDesc: 'Campañas visuales, spotlights de artistas, piezas para gaming y arte conceptual. Deslizá con las flechas o arrastrá con el mouse.',
       dragHint: 'Arrastrá o usá las flechas',
       brandingHeading: 'Identidad & Logotipos',
       brandingDesc: 'Logotipos creados para e-commerce, tecnología, gastronomía, cultura e instituciones — cada marca construida a medida.',
@@ -97,6 +97,13 @@ window.TRANSLATIONS = {
       viewDetailsHint: 'Ver proyecto ↗',
 
       ux: {
+        report: {
+          title: 'STATE OF VIDEO GAME FREELANCING 2025',
+          role: 'Devoted Fusion · Web Report & Visual Design',
+          short: 'Reporte web interactivo sobre tendencias globales, presupuestos y contratación en la industria de videojuegos.',
+          full: 'The Devoted Fusion State of Video Game Freelancing Report 2025 ofrece una mirada detallada sobre cómo colaboran estudios y artistas independientes en todo el mundo. Creado junto al equipo de Marketing y el ex CCO Jason Harris, presentando tendencias emergentes, benchmarks de contratación e historias reales de productores y artistas.',
+          deliverables: ['Web Report UI', 'Data Storytelling', 'Visual Design', 'Interactive Layout']
+        },
         nike: {
           title: 'NIKE × DIGIMON — PROTOTIPO WEB',
           role: 'Prototipo Interactivo · Desktop & Mobile (Light / Dark)',
@@ -266,8 +273,8 @@ window.TRANSLATIONS = {
       allSocialKicker: '01 · SOCIAL MEDIA & GRAPHICS',
       allSocialTitle: 'Social Media Design',
       allSocialDesc:
-        'High-impact visual campaigns, Web3 & NFT graphics, institutional pieces, and digital concept art crafted to stop the scroll and elevate every brand message.',
-      allSocialCta: 'Explore 28 pieces →',
+        'High-impact visual campaigns, editorial carousels, gaming spotlights, and digital concept art crafted to stop the scroll and elevate every brand message.',
+      allSocialCta: 'Explore 52 pieces →',
 
       allBrandingKicker: '02 · VISUAL IDENTITY',
       allBrandingTitle: 'Branding & Logotypes',
@@ -278,11 +285,11 @@ window.TRANSLATIONS = {
       allUxuiKicker: '03 · DIGITAL PRODUCT',
       allUxuiTitle: 'UX/UI & Web Design',
       allUxuiDesc:
-        'Mobile apps, interactive prototypes, and websites blending visual identity, typography, color, and intuitive component systems built for real users.',
-      allUxuiCta: 'Explore 5 projects →',
+        'Mobile apps, interactive reports, and websites blending visual identity, typography, color, and intuitive component systems built for real users.',
+      allUxuiCta: 'Explore 6 projects →',
 
       socialHeading: 'Social Media & Graphic Design',
-      socialDesc: 'Visual campaigns, social media graphics, Web3 flyers, and digital concept art. Use the arrows or drag horizontally to browse.',
+      socialDesc: 'Visual campaigns, gaming spotlights, editorial carousels, and digital concept art. Use the arrows or drag horizontally to browse.',
       dragHint: 'Drag or use arrows',
       brandingHeading: 'Identity & Logotypes',
       brandingDesc: 'Custom logotypes created for e-commerce, tech, hospitality, culture, and civic institutions.',
@@ -294,6 +301,13 @@ window.TRANSLATIONS = {
       viewDetailsHint: 'View case ↗',
 
       ux: {
+        report: {
+          title: 'STATE OF VIDEO GAME FREELANCING 2025',
+          role: 'Devoted Fusion · Web Report & Visual Design',
+          short: 'Global interactive web report exploring game art trends, hiring benchmarks, and studio collaboration.',
+          full: 'The Devoted Fusion State of Video Game Freelancing Report 2025 provides an in-depth look at how studios and independent artists collaborate worldwide. Created alongside the Marketing team and former CCO Jason Harris, spotlighting emerging freelance trends, budget benchmarks, and real producer stories.',
+          deliverables: ['Web Report UI', 'Data Storytelling', 'Visual Design', 'Interactive Layout']
+        },
         nike: {
           title: 'NIKE × DIGIMON — WEB PROTOTYPE',
           role: 'Interactive Prototype · Desktop & Mobile (Light / Dark)',
