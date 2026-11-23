@@ -14,7 +14,7 @@ window.PORTFOLIO_ASSETS = {
     { id: '05', name: 'Jazz', src: 'assets/branding_logos/Jazz.avif', mode: 'ink', scale: 1.62 },
     { id: '06', name: "Lucio's Bakery", src: 'assets/branding_logos/Logo ByN SVG.svg', mode: 'tonal', scale: 0.84 },
     { id: '07', name: 'Los Miches', src: 'assets/branding_logos/losmiches.avif', mode: 'ink', scale: 1.66 },
-    { id: '08', name: 'Monstro', src: 'assets/branding_logos/monstro.avif', mode: 'monstro', scale: 1.32 },
+    { id: '08', name: 'Monstro', src: 'assets/branding_logos/monstro_logo_black.svg', mode: 'tonal', scale: 1.36 },
     { id: '09', name: 'Museos y Monumentos', src: 'assets/branding_logos/museosymonumentos.avif', mode: 'ink', scale: 1.68 },
     { id: '10', name: 'Ninkasi', src: 'assets/branding_logos/ninkasi.avif', mode: 'ink', scale: 1.16 },
     { id: '11', name: 'One Percent', src: 'assets/branding_logos/One-Percent-Logo-Final.png', mode: 'ink', scale: 1.0 },
