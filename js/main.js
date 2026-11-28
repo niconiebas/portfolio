@@ -47,6 +47,10 @@
       btn.classList.toggle('is-active', isMatch);
       btn.setAttribute('aria-pressed', String(isMatch));
     });
+
+    if (typeof syncGlobalMutePillLabel === 'function') {
+      syncGlobalMutePillLabel();
+    }
   }
 
   document.querySelectorAll('.lang-btn').forEach((btn) => {
@@ -146,15 +150,20 @@
   updateScrollState();
 
   // =========================================================================
-  // 5. WORK TABS (TODOS -> SOCIAL MEDIA -> BRANDING -> UX/UI & WEB)
+  // 5. WORK TABS (TODOS -> SOCIAL MEDIA -> VIDEO & MOTION -> BRANDING -> UX/UI & WEB)
   // =========================================================================
   const tabBtns = document.querySelectorAll('[role="tab"][data-tab]');
   const workPanels = {
     all: document.getElementById('panel-all'),
     social: document.getElementById('panel-social'),
+    video: document.getElementById('panel-video'),
     branding: document.getElementById('panel-branding'),
     uxui: document.getElementById('panel-uxui')
   };
+  let updateVideoCarouselUI = null;
+  let syncVisibleVideos = null;
+  let pauseAllCarouselVideos = null;
+  let syncGlobalMutePillLabel = null;
 
   function activateWorkTab(target) {
     if (!workPanels[target]) return;
@@ -177,6 +186,12 @@
       updateScrollState();
       if (target === 'social' && typeof updateSocialCarouselUI === 'function') {
         updateSocialCarouselUI();
+      }
+      if (target === 'video') {
+        if (typeof updateVideoCarouselUI === 'function') updateVideoCarouselUI();
+        if (typeof syncVisibleVideos === 'function') syncVisibleVideos();
+      } else if (typeof pauseAllCarouselVideos === 'function') {
+        pauseAllCarouselVideos();
       }
     });
   }
@@ -389,6 +404,397 @@
     socialTrack.addEventListener('scroll', updateSocialCarouselUI, { passive: true });
     window.addEventListener('resize', updateSocialCarouselUI, { passive: true });
     updateSocialCarouselUI();
+  }
+
+  // =========================================================================
+  // 6B. VIDEO EDITING & MOTION CAROUSEL (Muted by default + Lightbox)
+  // =========================================================================
+  const videoTrack = document.getElementById('video-track');
+  const videoPrev = document.getElementById('video-prev');
+  const videoNext = document.getElementById('video-next');
+  const videoCounter = document.getElementById('video-counter');
+  const videoGlobalMuteBtn = document.getElementById('video-global-mute');
+  const videoGlobalMuteLabel = document.getElementById('video-global-mute-label');
+  const videoItems = (window.PORTFOLIO_ASSETS && window.PORTFOLIO_ASSETS.videoEditing) || [];
+
+  const videoLightbox = document.getElementById('video-lightbox');
+  const videoLightboxPlayer = document.getElementById('video-lightbox-player');
+  const videoLightboxCaption = document.getElementById('video-lightbox-caption');
+  const videoLightboxClose = document.getElementById('video-lightbox-close');
+  const videoLightboxPrev = document.getElementById('video-lightbox-prev');
+  const videoLightboxNext = document.getElementById('video-lightbox-next');
+  let videoLightboxIndex = 0;
+
+  const videoSlideRefs = [];
+  let activeUnmutedIndex = -1;
+
+  syncGlobalMutePillLabel = function () {
+    if (!videoGlobalMuteBtn || !videoGlobalMuteLabel) return;
+    const isMuted = activeUnmutedIndex === -1;
+    videoGlobalMuteBtn.classList.toggle('is-muted', isMuted);
+    videoGlobalMuteBtn.setAttribute('aria-pressed', String(isMuted));
+    const dict = window.TRANSLATIONS && window.TRANSLATIONS[currentLang];
+    const key = isMuted ? 'work.videoMutedLabel' : 'work.videoSoundLabel';
+    const text = getDictValue(dict, key) || (isMuted ? 'Silenciado' : 'Sonido activo');
+    videoGlobalMuteLabel.textContent = text;
+  };
+
+  function setSlideUnmuted(targetIdx) {
+    activeUnmutedIndex = targetIdx;
+    videoSlideRefs.forEach((ref, idx) => {
+      const unmute = idx === targetIdx;
+      ref.video.muted = !unmute;
+      ref.muteBtn.classList.toggle('is-unmuted', unmute);
+      ref.muteBtn.classList.toggle('is-active', unmute);
+      ref.muteBtn.setAttribute('aria-pressed', String(unmute));
+      ref.muteBtn.setAttribute('aria-label', unmute ? `Silenciar ${ref.item.title}` : `Activar sonido en ${ref.item.title}`);
+      if (unmute) {
+        ref.userPaused = false;
+        ref.playBtn.classList.remove('is-paused');
+        ref.video.play().catch(() => {});
+      }
+    });
+    syncGlobalMutePillLabel();
+  }
+
+  pauseAllCarouselVideos = function () {
+    setSlideUnmuted(-1);
+    videoSlideRefs.forEach((ref) => {
+      if (!ref.video.paused) {
+        ref.video.pause();
+      }
+    });
+  };
+
+  function openVideoLightbox(idx) {
+    if (!videoLightbox || !videoLightboxPlayer || !videoItems.length) return;
+    const keepUnmuted = activeUnmutedIndex === idx;
+    pauseAllCarouselVideos();
+
+    videoLightboxIndex = (idx + videoItems.length) % videoItems.length;
+    const item = videoItems[videoLightboxIndex];
+    videoLightboxPlayer.src = encodeURI(item.src);
+    videoLightboxPlayer.muted = !keepUnmuted;
+    videoLightboxCaption.textContent = `${String(videoLightboxIndex + 1).padStart(2, '0')} / ${String(videoItems.length).padStart(2, '0')} — ${item.title}`;
+    videoLightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+    videoLightboxPlayer.play().catch(() => {});
+  }
+
+  function closeVideoLightbox() {
+    if (!videoLightbox || !videoLightboxPlayer) return;
+    videoLightboxPlayer.pause();
+    videoLightboxPlayer.removeAttribute('src');
+    videoLightboxPlayer.load();
+    videoLightbox.hidden = true;
+    document.body.style.overflow = '';
+    if (typeof syncVisibleVideos === 'function') syncVisibleVideos();
+  }
+
+  if (videoLightboxClose) videoLightboxClose.addEventListener('click', closeVideoLightbox);
+  if (videoLightboxPrev) videoLightboxPrev.addEventListener('click', () => openVideoLightbox(videoLightboxIndex - 1));
+  if (videoLightboxNext) videoLightboxNext.addEventListener('click', () => openVideoLightbox(videoLightboxIndex + 1));
+  if (videoLightbox) {
+    videoLightbox.addEventListener('click', (e) => {
+      if (e.target === videoLightbox) closeVideoLightbox();
+    });
+  }
+
+  if (videoTrack && videoItems.length) {
+    const frag = document.createDocumentFragment();
+    videoItems.forEach((item, idx) => {
+      const slide = document.createElement('div');
+      const isWide = item.w && item.h && item.w / item.h > 1.25;
+      slide.className = `video-slide${isWide ? ' video-slide--wide' : ''}`;
+      slide.dataset.index = String(idx);
+      if (item.w && item.h) {
+        slide.style.setProperty('--video-ratio', `${item.w} / ${item.h}`);
+      }
+
+      const video = document.createElement('video');
+      video.src = `${encodeURI(item.src)}#t=0.1`;
+      video.muted = true;
+      video.defaultMuted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+      video.preload = 'metadata';
+      video.setAttribute('aria-label', item.title);
+
+      const overlay = document.createElement('div');
+      overlay.className = 'video-slide-overlay';
+
+      const meta = document.createElement('div');
+      meta.className = 'video-slide-meta';
+      meta.innerHTML = `<span class="video-slide-title">${item.title}</span>${item.duration ? `<span class="video-slide-duration">${item.duration}</span>` : ''}`;
+
+      const controls = document.createElement('div');
+      controls.className = 'video-slide-controls';
+
+      const muteBtn = document.createElement('button');
+      muteBtn.type = 'button';
+      muteBtn.className = 'video-ctrl-btn video-ctrl-btn--mute';
+      muteBtn.setAttribute('aria-pressed', 'false');
+      muteBtn.setAttribute('aria-label', `Activar sonido en ${item.title}`);
+      muteBtn.innerHTML = `
+        <svg class="icon-muted" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M11 5L6 9H2v6h4l5 4V5z" />
+          <line x1="23" y1="9" x2="17" y2="15" />
+          <line x1="17" y1="9" x2="23" y2="15" />
+        </svg>
+        <svg class="icon-unmuted" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M11 5L6 9H2v6h4l5 4V5z" />
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+        </svg>
+      `;
+
+      const playBtn = document.createElement('button');
+      playBtn.type = 'button';
+      playBtn.className = 'video-ctrl-btn video-ctrl-btn--play';
+      playBtn.setAttribute('aria-label', `Pausar o reproducir ${item.title}`);
+      playBtn.innerHTML = `
+        <svg class="icon-pause" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+          <rect x="6" y="4" width="4" height="16" rx="1" />
+          <rect x="14" y="4" width="4" height="16" rx="1" />
+        </svg>
+        <svg class="icon-play" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+          <polygon points="6,4 20,12 6,20" />
+        </svg>
+      `;
+
+      const zoomBtn = document.createElement('button');
+      zoomBtn.type = 'button';
+      zoomBtn.className = 'video-ctrl-btn video-ctrl-btn--zoom';
+      zoomBtn.setAttribute('aria-label', `Ampliar ${item.title}`);
+      zoomBtn.textContent = '↗';
+
+      const ref = { slide, video, muteBtn, playBtn, item, userPaused: false, isVisible: false };
+      videoSlideRefs.push(ref);
+
+      muteBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (activeUnmutedIndex === idx) {
+          setSlideUnmuted(-1);
+        } else {
+          setSlideUnmuted(idx);
+        }
+      });
+
+      playBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (video.paused) {
+          ref.userPaused = false;
+          playBtn.classList.remove('is-paused');
+          video.play().catch(() => {});
+        } else {
+          ref.userPaused = true;
+          playBtn.classList.add('is-paused');
+          video.pause();
+        }
+      });
+
+      zoomBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openVideoLightbox(idx);
+      });
+
+      controls.appendChild(muteBtn);
+      controls.appendChild(playBtn);
+      controls.appendChild(zoomBtn);
+      overlay.appendChild(meta);
+      overlay.appendChild(controls);
+
+      slide.appendChild(video);
+      slide.appendChild(overlay);
+      frag.appendChild(slide);
+    });
+    videoTrack.appendChild(frag);
+
+    function getCurrentVideoIndex() {
+      const slides = videoTrack.children;
+      const leftEdge = videoTrack.scrollLeft + 48;
+      let currentIdx = 0;
+      for (let i = 0; i < slides.length; i++) {
+        if (slides[i].offsetLeft <= leftEdge) {
+          currentIdx = i;
+        } else {
+          break;
+        }
+      }
+      return currentIdx;
+    }
+
+    if (videoGlobalMuteBtn) {
+      videoGlobalMuteBtn.addEventListener('click', () => {
+        if (activeUnmutedIndex !== -1) {
+          setSlideUnmuted(-1);
+        } else {
+          setSlideUnmuted(getCurrentVideoIndex());
+        }
+      });
+    }
+
+    let videoPanelInViewport = true;
+
+    syncVisibleVideos = function () {
+      const panelVisible = workPanels.video && !workPanels.video.hidden && videoPanelInViewport;
+      const lightboxOpen = videoLightbox && !videoLightbox.hidden;
+      videoSlideRefs.forEach((ref, idx) => {
+        if (panelVisible && !lightboxOpen && ref.isVisible && !ref.userPaused) {
+          ref.video.play().catch(() => {});
+        } else {
+          if (!ref.video.paused) ref.video.pause();
+          if (activeUnmutedIndex === idx && (!panelVisible || !ref.isVisible)) {
+            setSlideUnmuted(-1);
+          }
+        }
+      });
+    };
+
+    if ('IntersectionObserver' in window) {
+      const panelViewportObserver = new IntersectionObserver(
+        (entries) => {
+          videoPanelInViewport = entries[0] ? entries[0].isIntersecting : true;
+          syncVisibleVideos();
+        },
+        { threshold: 0.05 }
+      );
+      if (workPanels.video) panelViewportObserver.observe(workPanels.video);
+
+      const vidObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const idx = Number(entry.target.dataset.index);
+            const ref = videoSlideRefs[idx];
+            if (!ref) return;
+            ref.isVisible = entry.isIntersecting && entry.intersectionRatio >= 0.3;
+          });
+          syncVisibleVideos();
+        },
+        { root: videoTrack, threshold: [0, 0.3, 0.6] }
+      );
+      videoSlideRefs.forEach((ref) => vidObserver.observe(ref.slide));
+    } else {
+      videoSlideRefs.forEach((ref) => {
+        ref.isVisible = true;
+      });
+    }
+
+    updateVideoCarouselUI = function () {
+      const maxScroll = Math.max(0, videoTrack.scrollWidth - videoTrack.clientWidth);
+      if (videoPrev) videoPrev.disabled = videoTrack.scrollLeft <= 6;
+      if (videoNext) videoNext.disabled = videoTrack.scrollLeft >= maxScroll - 6;
+
+      if (videoCounter) {
+        const currentIdx = getCurrentVideoIndex() + 1;
+        videoCounter.textContent = `${String(currentIdx).padStart(2, '0')} / ${String(videoItems.length).padStart(2, '0')}`;
+      }
+    };
+
+    function scrollVideoByStep(direction) {
+      const step = Math.max(280, Math.round(videoTrack.clientWidth * 0.68));
+      videoTrack.scrollBy({ left: direction * step, behavior: 'smooth' });
+    }
+
+    if (videoPrev) videoPrev.addEventListener('click', () => scrollVideoByStep(-1));
+    if (videoNext) videoNext.addEventListener('click', () => scrollVideoByStep(1));
+
+    let vPointerDown = false;
+    let vStartX = 0;
+    let vStartScrollLeft = 0;
+    let vDraggedDistance = 0;
+    let vLastX = 0;
+    let vVelocity = 0;
+    let vMomentumRaf = null;
+
+    function stopVideoMomentum() {
+      if (vMomentumRaf) {
+        cancelAnimationFrame(vMomentumRaf);
+        vMomentumRaf = null;
+      }
+    }
+
+    videoTrack.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'touch') return;
+      if (e.target.closest('.video-slide-controls')) return;
+
+      stopVideoMomentum();
+      vPointerDown = true;
+      vDraggedDistance = 0;
+      vStartX = e.clientX;
+      vLastX = e.clientX;
+      vStartScrollLeft = videoTrack.scrollLeft;
+      vVelocity = 0;
+      videoTrack.classList.add('is-dragging');
+      videoTrack.setPointerCapture(e.pointerId);
+    });
+
+    videoTrack.addEventListener('pointermove', (e) => {
+      if (!vPointerDown) return;
+      const dx = e.clientX - vStartX;
+      vDraggedDistance = Math.max(vDraggedDistance, Math.abs(dx));
+      vVelocity = e.clientX - vLastX;
+      vLastX = e.clientX;
+      videoTrack.scrollLeft = vStartScrollLeft - dx;
+    });
+
+    function endVideoDrag(e) {
+      if (!vPointerDown) return;
+      vPointerDown = false;
+      videoTrack.classList.remove('is-dragging');
+      if (e && videoTrack.hasPointerCapture(e.pointerId)) {
+        videoTrack.releasePointerCapture(e.pointerId);
+      }
+
+      if (vDraggedDistance < 8 && e) {
+        const slide = e.target.closest('.video-slide');
+        if (slide && slide.dataset.index !== undefined) {
+          openVideoLightbox(Number(slide.dataset.index));
+          return;
+        }
+      }
+
+      let v = vVelocity * 1.15;
+      function glide() {
+        if (Math.abs(v) < 0.4) return;
+        videoTrack.scrollLeft -= v;
+        v *= 0.92;
+        vMomentumRaf = requestAnimationFrame(glide);
+      }
+      if (Math.abs(v) > 1.2) {
+        vMomentumRaf = requestAnimationFrame(glide);
+      }
+    }
+
+    videoTrack.addEventListener('pointerup', endVideoDrag);
+    videoTrack.addEventListener('pointercancel', endVideoDrag);
+
+    // Touch tap on slide (outside controls) opens lightbox smoothly
+    videoTrack.addEventListener('click', (e) => {
+      if (e.target.closest('.video-slide-controls')) return;
+      if (vDraggedDistance >= 8) return;
+      const slide = e.target.closest('.video-slide');
+      if (slide && slide.dataset.index !== undefined && window.matchMedia('(pointer: coarse)').matches) {
+        openVideoLightbox(Number(slide.dataset.index));
+      }
+    });
+
+    videoTrack.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        scrollVideoByStep(1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        scrollVideoByStep(-1);
+      }
+    });
+
+    videoTrack.addEventListener('scroll', updateVideoCarouselUI, { passive: true });
+    window.addEventListener('resize', updateVideoCarouselUI, { passive: true });
+    updateVideoCarouselUI();
+    syncGlobalMutePillLabel();
   }
 
   // =========================================================================
@@ -624,9 +1030,13 @@
     if (e.key === 'Escape') {
       if (modal && !modal.hidden) closeProjectModal();
       if (lightbox && !lightbox.hidden) closeLightbox();
+      if (videoLightbox && !videoLightbox.hidden) closeVideoLightbox();
     } else if (lightbox && !lightbox.hidden) {
       if (e.key === 'ArrowLeft') openLightbox(lightboxIndex - 1);
       if (e.key === 'ArrowRight') openLightbox(lightboxIndex + 1);
+    } else if (videoLightbox && !videoLightbox.hidden) {
+      if (e.key === 'ArrowLeft') openVideoLightbox(videoLightboxIndex - 1);
+      if (e.key === 'ArrowRight') openVideoLightbox(videoLightboxIndex + 1);
     }
   });
 

@@ -1,6 +1,7 @@
 /* ==========================================================================
    CURATED PORTFOLIO ASSETS MANIFEST
    - 52 Social Media Graphics (50 optimized JPGs + 2 AVIFs, exact ratios)
+   - 10 Video Editing & Motion Reels (muted-by-default carousel + lightbox)
    - 13 Branding Logos (optically normalized scale per logo, #161616 treatment)
    - 6 UX/UI & Web Projects (Freelance Report, Nike Prototype, SilverSwap, Dando, Guaurdería, miBondi)
    ========================================================================== */
@@ -75,6 +76,19 @@ window.PORTFOLIO_ASSETS = {
     { src: 'assets/social_media_optimized/sm-33.jpg', title: 'Vinsmoke Sanji — Concept Art', w: 760, h: 760 },
     { src: 'assets/social_media_optimized/sm-34.jpg', title: 'Zoro Devil King — Concept Art', w: 760, h: 760 },
     { src: 'assets/social_media_optimized/sm-31.jpg', title: 'Promo Gastronomía — Social Media', w: 608, h: 760 }
+  ],
+
+  videoEditing: [
+    { src: 'assets/video_editing/Devoted at Gamescom Final.mp4', title: 'Devoted at Gamescom — Motion Reel', w: 1080, h: 1350, duration: '0:06' },
+    { src: 'assets/video_editing/Event-Slice-Animation-Final.mp4', title: 'Event Slice — Motion Animation', w: 1080, h: 1350, duration: '0:06' },
+    { src: 'assets/video_editing/Giveaway Winners Announcement.mp4', title: 'Giveaway Winners — Announcement', w: 1080, h: 1080, duration: '0:06' },
+    { src: 'assets/video_editing/Using Software Search ArtFeed Social Video.mp4', title: 'ArtFeed Software Search — Social Video', w: 1080, h: 1080, duration: '0:12' },
+    { src: 'assets/video_editing/Hire top-vetted freelance game artists.mp4', title: 'Hire Freelance Game Artists — Promo', w: 1080, h: 1080, duration: '0:10' },
+    { src: 'assets/video_editing/Gif Match Artists Final Version.mp4', title: 'Match Artists — Animated Loop', w: 528, h: 554, duration: '0:10' },
+    { src: 'assets/video_editing/BTW_Mauro_Cordeiro_reel_1080x1350.mp4', title: 'Mauro Cordeiro — Artist Spotlight Reel', w: 1080, h: 1350, duration: '1:00' },
+    { src: 'assets/video_editing/Marina CardGame Video.mp4', title: 'Marina Card Game — Promo Video', w: 1920, h: 1080, duration: '0:20' },
+    { src: 'assets/video_editing/Content Marketing for Web3 Businesses ver2.mp4', title: 'Content Marketing for Web3 — Explainer', w: 1280, h: 720, duration: '1:32' },
+    { src: 'assets/video_editing/5 Free Tools for Social Media - Fracas Video.mp4', title: '5 Free Tools for Social Media — Fracas', w: 1920, h: 1080, duration: '1:17' }
   ],
 
   uxuiProjects: [

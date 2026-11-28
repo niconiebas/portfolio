@@ -1195,11 +1195,11 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   TAB 0: TODOS — 3-PILLAR OVERVIEW CARDS
+   TAB 0: TODOS — 4-PILLAR OVERVIEW CARDS (Clean 2x2 Swiss Grid)
    -------------------------------------------------------------------------- */
 .overview-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(20px, 2.5vw, 32px);
 }
 
@@ -1240,6 +1240,41 @@ img {
 
 .overview-card:hover .overview-visual--photo img {
   transform: scale(1.05);
+}
+
+.overview-visual--video {
+  position: relative;
+  background: #111111;
+}
+
+.overview-visual--video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s var(--ease-out);
+}
+
+.overview-card:hover .overview-visual--video video {
+  transform: scale(1.04);
+}
+
+.overview-video-badge {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 9999px;
+  background: rgba(22, 22, 22, 0.78);
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  backdrop-filter: blur(6px);
 }
 
 .overview-visual--logo {
@@ -1440,6 +1475,183 @@ img {
 .social-slide:focus-within .social-slide-zoom {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   TAB 2: VIDEO EDITING & MOTION CAROUSEL (Muted-by-default + responsive)
+   -------------------------------------------------------------------------- */
+.video-mute-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 9999px;
+  border: 1px solid var(--ink);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s var(--ease-out);
+}
+
+.video-mute-filter-pill:hover {
+  transform: translateY(-1px);
+  background: var(--surface);
+}
+
+.video-mute-filter-pill .icon-unmuted {
+  display: none;
+}
+
+.video-mute-filter-pill:not(.is-muted) {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.video-mute-filter-pill:not(.is-muted):hover {
+  background: #2b2b2b;
+}
+
+.video-mute-filter-pill:not(.is-muted) .icon-muted {
+  display: none;
+}
+
+.video-mute-filter-pill:not(.is-muted) .icon-unmuted {
+  display: inline-block;
+}
+
+.video-slide {
+  flex: 0 0 auto;
+  height: clamp(290px, 44vh, 430px);
+  aspect-ratio: var(--video-ratio, 4 / 5);
+  border-radius: 20px;
+  overflow: hidden;
+  background: #111111;
+  border: 1px solid rgba(22, 22, 22, 0.12);
+  position: relative;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease;
+}
+
+.video-slide:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(22, 22, 22, 0.16);
+}
+
+.video-slide video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  background: #111111;
+  pointer-events: none;
+  user-select: none;
+}
+
+.video-slide-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 28px 12px 12px;
+  background: linear-gradient(to top, rgba(16, 16, 16, 0.84) 0%, rgba(16, 16, 16, 0.32) 55%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.video-slide-meta {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--bg);
+  opacity: 0.92;
+  transition: opacity 0.25s ease;
+}
+
+.video-slide-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.video-slide-duration {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.video-slide-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.video-ctrl-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(22, 22, 22, 0.8);
+  color: var(--bg);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  font-size: 0.82rem;
+  transition: transform 0.2s var(--ease-out), background-color 0.2s ease, color 0.2s ease;
+}
+
+.video-ctrl-btn:hover {
+  transform: scale(1.08);
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.video-ctrl-btn.is-active {
+  background: var(--bg);
+  color: var(--ink);
+  border-color: var(--bg);
+}
+
+.video-ctrl-btn--play .icon-play,
+.video-ctrl-btn--mute .icon-unmuted {
+  display: none;
+}
+
+.video-ctrl-btn--play.is-paused .icon-pause {
+  display: none;
+}
+
+.video-ctrl-btn--play.is-paused .icon-play {
+  display: inline-block;
+}
+
+.video-ctrl-btn--mute.is-unmuted .icon-muted {
+  display: none;
+}
+
+.video-ctrl-btn--mute.is-unmuted .icon-unmuted {
+  display: inline-block;
+}
+
+.lightbox-figure--video video {
+  max-width: min(88vw, 960px);
+  max-height: 76vh;
+  width: auto;
+  height: auto;
+  border-radius: 16px;
+  background: #000000;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.5);
 }
 
 /* --------------------------------------------------------------------------
@@ -2156,8 +2368,7 @@ img {
    ========================================================================== */
 @media (max-width: 1040px) {
 
-  .about-grid,
-  .overview-grid {
+  .about-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2246,6 +2457,7 @@ img {
     display: none;
   }
 
+  .overview-grid,
   .skills-matrix,
   .courses-grid,
   .ux-screens-grid--2,
@@ -2412,6 +2624,27 @@ img {
   .social-slide {
     height: clamp(250px, 56vw, 330px);
     border-radius: 16px;
+  }
+
+  .video-slide {
+    height: clamp(240px, 58vw, 330px);
+    max-width: calc(100vw - 44px);
+    border-radius: 16px;
+  }
+
+  .video-slide--wide video {
+    object-fit: contain;
+  }
+
+  .video-mute-filter-pill {
+    height: 40px;
+    padding: 0 13px;
+    font-size: 0.66rem;
+  }
+
+  .video-ctrl-btn {
+    width: 36px;
+    height: 36px;
   }
 
   .social-slide-zoom,

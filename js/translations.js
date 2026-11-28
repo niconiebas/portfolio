@@ -60,9 +60,10 @@ window.TRANSLATIONS = {
     },
     work: {
       title: 'MI TRABAJO',
-      intro: 'Un recorrido por las tres disciplinas que definen mi trabajo: redes sociales, identidad de marca y diseño UX/UI.',
+      intro: 'Un recorrido por las cuatro disciplinas que definen mi trabajo: redes sociales, identidad de marca, diseño UX/UI y edición de video.',
       tabAll: 'TODOS',
       tabSocial: 'SOCIAL MEDIA',
+      tabVideo: 'VIDEO & MOTION',
       tabBranding: 'BRANDING',
       tabUxui: 'UX/UI & WEB',
 
@@ -72,13 +73,19 @@ window.TRANSLATIONS = {
         'Creo piezas visuales de alto impacto, carruseles editoriales, campañas para la industria gaming y arte conceptual digital pensados para destacar en el feed y potenciar cada mensaje.',
       allSocialCta: 'Explorar 52 piezas →',
 
-      allBrandingKicker: '02 · IDENTIDAD VISUAL',
+      allVideoKicker: '02 · VIDEO EDITING & MOTION',
+      allVideoTitle: 'Edición de Video & Motion',
+      allVideoDesc:
+        'Reels, motion graphics, animaciones y piezas audiovisuales para redes y campañas digitales — reproducidos en silencio por defecto para una navegación cómoda.',
+      allVideoCta: 'Explorar 10 videos →',
+
+      allBrandingKicker: '03 · IDENTIDAD VISUAL',
       allBrandingTitle: 'Branding & Logotipos',
       allBrandingDesc:
         'Diseño marcas, logotipos y sistemas visuales a medida para startups, comercios e instituciones — buscando siempre sintetizar la esencia real de cada negocio en una identidad memorable.',
       allBrandingCta: 'Explorar 13 logos →',
 
-      allUxuiKicker: '03 · PRODUCTO DIGITAL',
+      allUxuiKicker: '04 · PRODUCTO DIGITAL',
       allUxuiTitle: 'UX/UI & Diseño Web',
       allUxuiDesc:
         'Diseño aplicaciones móviles, reportes interactivos y sitios web combinando identidad visual, tipografía, color y sistemas de componentes claros y fáciles de usar.',
@@ -86,6 +93,10 @@ window.TRANSLATIONS = {
 
       socialHeading: 'Social Media & Graphic Design',
       socialDesc: 'Campañas visuales, spotlights de artistas, piezas para gaming y arte conceptual. Deslizá con las flechas o arrastrá con el mouse.',
+      videoHeading: 'Video Editing & Motion Graphics',
+      videoDesc: 'Reels, animaciones y piezas audiovisuales para redes. Se reproducen en silencio por defecto — activá el audio en cualquier video cuando quieras.',
+      videoMutedLabel: 'Silenciado',
+      videoSoundLabel: 'Sonido activo',
       dragHint: 'Arrastrá o usá las flechas',
       brandingHeading: 'Identidad & Logotipos',
       brandingDesc: 'Logotipos creados para e-commerce, tecnología, gastronomía, cultura e instituciones — cada marca construida a medida.',
@@ -264,9 +275,10 @@ window.TRANSLATIONS = {
     },
     work: {
       title: 'MY WORK',
-      intro: 'An overview across the three core pillars of my work: social media visuals, brand identity, and UX/UI design.',
+      intro: 'An overview across the four core pillars of my work: social media visuals, video editing, brand identity, and UX/UI design.',
       tabAll: 'ALL',
       tabSocial: 'SOCIAL MEDIA',
+      tabVideo: 'VIDEO & MOTION',
       tabBranding: 'BRANDING',
       tabUxui: 'UX/UI & WEB',
 
@@ -276,13 +288,19 @@ window.TRANSLATIONS = {
         'High-impact visual campaigns, editorial carousels, gaming spotlights, and digital concept art crafted to stop the scroll and elevate every brand message.',
       allSocialCta: 'Explore 52 pieces →',
 
-      allBrandingKicker: '02 · VISUAL IDENTITY',
+      allVideoKicker: '02 · VIDEO EDITING & MOTION',
+      allVideoTitle: 'Video Editing & Motion',
+      allVideoDesc:
+        'Reels, motion graphics, animations, and social video edits crafted for digital campaigns — muted by default for a smooth, non-intrusive browse.',
+      allVideoCta: 'Explore 10 videos →',
+
+      allBrandingKicker: '03 · VISUAL IDENTITY',
       allBrandingTitle: 'Branding & Logotypes',
       allBrandingDesc:
         'Custom logos and cohesive brand identities built for startups, commerce, and institutions — distilling each business’s essence into a memorable visual mark.',
       allBrandingCta: 'Explore 13 logos →',
 
-      allUxuiKicker: '03 · DIGITAL PRODUCT',
+      allUxuiKicker: '04 · DIGITAL PRODUCT',
       allUxuiTitle: 'UX/UI & Web Design',
       allUxuiDesc:
         'Mobile apps, interactive reports, and websites blending visual identity, typography, color, and intuitive component systems built for real users.',
@@ -290,6 +308,10 @@ window.TRANSLATIONS = {
 
       socialHeading: 'Social Media & Graphic Design',
       socialDesc: 'Visual campaigns, gaming spotlights, editorial carousels, and digital concept art. Use the arrows or drag horizontally to browse.',
+      videoHeading: 'Video Editing & Motion Graphics',
+      videoDesc: 'Reels, animations, and social video pieces. Muted by default so nothing is intrusive — toggle sound on any video whenever you like.',
+      videoMutedLabel: 'Muted',
+      videoSoundLabel: 'Sound on',
       dragHint: 'Drag or use arrows',
       brandingHeading: 'Identity & Logotypes',
       brandingDesc: 'Custom logotypes created for e-commerce, tech, hospitality, culture, and civic institutions.',

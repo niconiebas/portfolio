@@ -17,7 +17,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=5" />
+  <link rel="stylesheet" href="css/styles.css?v=6" />
 </head>
 
 <body>
@@ -380,14 +380,16 @@
 
         <div class="work-toolbar reveal">
           <p class="work-intro" data-i18n="work.intro">
-            Un recorrido por las tres disciplinas que definen mi trabajo: redes sociales, identidad de marca y diseño
-            UX/UI.
+            Un recorrido por las cuatro disciplinas que definen mi trabajo: redes sociales, identidad de marca, diseño
+            UX/UI y edición de video.
           </p>
           <div class="filter-group" role="tablist" aria-label="Categorías de trabajo">
             <button type="button" class="filter-btn is-active" id="tab-all" data-tab="all" role="tab"
               aria-selected="true" aria-controls="panel-all" data-i18n="work.tabAll">TODOS</button>
             <button type="button" class="filter-btn" id="tab-social" data-tab="social" role="tab" aria-selected="false"
               aria-controls="panel-social" data-i18n="work.tabSocial">SOCIAL MEDIA</button>
+            <button type="button" class="filter-btn" id="tab-video" data-tab="video" role="tab" aria-selected="false"
+              aria-controls="panel-video" data-i18n="work.tabVideo">VIDEO & MOTION</button>
             <button type="button" class="filter-btn" id="tab-branding" data-tab="branding" role="tab"
               aria-selected="false" aria-controls="panel-branding" data-i18n="work.tabBranding">BRANDING</button>
             <button type="button" class="filter-btn" id="tab-uxui" data-tab="uxui" role="tab" aria-selected="false"
@@ -395,7 +397,7 @@
           </div>
         </div>
 
-        <!-- TAB PANEL 0: TODOS (3-Pillar Curated Overview linking into each discipline) -->
+        <!-- TAB PANEL 0: TODOS (4-Pillar Curated Overview linking into each discipline) -->
         <div class="work-panel is-active" id="panel-all" role="tabpanel" aria-labelledby="tab-all">
           <div class="overview-grid">
             <!-- Pillar 01: Social Media -->
@@ -415,14 +417,40 @@
               </div>
             </article>
 
-            <!-- Pillar 02: Branding (Featured Logo: One Percent) -->
+            <!-- Pillar 02: Video Editing & Motion -->
+            <article class="overview-card" data-jump-tab="video" tabindex="0">
+              <div class="overview-visual overview-visual--video">
+                <video src="assets/video_editing/Devoted%20at%20Gamescom%20Final.mp4#t=0.1" muted loop playsinline
+                  autoplay preload="metadata" aria-label="Vista previa de edición de video y motion graphics"></video>
+                <span class="overview-video-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                    <line x1="23" y1="9" x2="17" y2="15" />
+                    <line x1="17" y1="9" x2="23" y2="15" />
+                  </svg>
+                  MUTE
+                </span>
+              </div>
+              <div class="overview-body">
+                <span class="meta-kicker" data-i18n="work.allVideoKicker">02 · VIDEO EDITING & MOTION</span>
+                <h3 class="overview-title" data-i18n="work.allVideoTitle">Edición de Video & Motion</h3>
+                <p class="overview-desc" data-i18n="work.allVideoDesc">
+                  Reels, motion graphics, animaciones y piezas audiovisuales para redes y campañas digitales —
+                  reproducidos en silencio por defecto para una navegación cómoda.
+                </p>
+                <span class="overview-cta" data-i18n="work.allVideoCta">Explorar 10 videos →</span>
+              </div>
+            </article>
+
+            <!-- Pillar 03: Branding (Featured Logo: One Percent) -->
             <article class="overview-card" data-jump-tab="branding" tabindex="0">
               <div class="overview-visual overview-visual--logo">
                 <img src="assets/branding_logos/One-Percent-Logo-Final.png" alt="One Percent — Identidad Visual"
                   class="overview-logo-img" loading="lazy" decoding="async" />
               </div>
               <div class="overview-body">
-                <span class="meta-kicker" data-i18n="work.allBrandingKicker">02 · IDENTIDAD VISUAL</span>
+                <span class="meta-kicker" data-i18n="work.allBrandingKicker">03 · IDENTIDAD VISUAL</span>
                 <h3 class="overview-title" data-i18n="work.allBrandingTitle">Branding & Logotipos</h3>
                 <p class="overview-desc" data-i18n="work.allBrandingDesc">
                   Diseño marcas, logotipos y sistemas visuales a medida para startups, comercios e instituciones —
@@ -432,14 +460,14 @@
               </div>
             </article>
 
-            <!-- Pillar 03: UX/UI & Web (Featured Screen: Nike x Digimon Figma Prototype Cover) -->
+            <!-- Pillar 04: UX/UI & Web (Featured Screen: Nike x Digimon Figma Prototype Cover) -->
             <article class="overview-card" data-jump-tab="uxui" tabindex="0">
               <div class="overview-visual overview-visual--photo">
                 <img src="assets/uxui_web_optimized/nike_cover_figma.jpg" alt="Nike x Digimon — UX/UI & Web Prototype"
                   width="1440" height="804" loading="lazy" decoding="async" />
               </div>
               <div class="overview-body">
-                <span class="meta-kicker" data-i18n="work.allUxuiKicker">03 · PRODUCTO DIGITAL</span>
+                <span class="meta-kicker" data-i18n="work.allUxuiKicker">04 · PRODUCTO DIGITAL</span>
                 <h3 class="overview-title" data-i18n="work.allUxuiTitle">UX/UI & Diseño Web</h3>
                 <p class="overview-desc" data-i18n="work.allUxuiDesc">
                   Diseño aplicaciones móviles, reportes interactivos y sitios web combinando identidad visual,
@@ -485,6 +513,62 @@
           <div class="social-carousel-viewport">
             <div class="social-carousel-track" id="social-track" tabindex="0"
               aria-label="Galería deslizable de Social Media">
+              <!-- Populated dynamically from js/gallery-data.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB PANEL 2: VIDEO EDITING & MOTION (Muted-by-default draggable & arrow carousel — 10 videos) -->
+        <div class="work-panel" id="panel-video" role="tabpanel" aria-labelledby="tab-video" hidden>
+          <div class="panel-subhead">
+            <div>
+              <h3 class="panel-heading" data-i18n="work.videoHeading">Video Editing & Motion Graphics</h3>
+              <p class="panel-desc" data-i18n="work.videoDesc">
+                Reels, animaciones y piezas audiovisuales para redes. Se reproducen en silencio por defecto — activá el
+                audio en cualquier video cuando quieras.
+              </p>
+            </div>
+
+            <div class="carousel-controls-wrap">
+              <button type="button" class="video-mute-filter-pill is-muted" id="video-global-mute" aria-pressed="true"
+                aria-label="Silenciar todos los videos">
+                <svg class="icon-muted" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                  <line x1="23" y1="9" x2="17" y2="15" />
+                  <line x1="17" y1="9" x2="23" y2="15" />
+                </svg>
+                <svg class="icon-unmuted" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                </svg>
+                <span class="mute-pill-label" id="video-global-mute-label"
+                  data-i18n="work.videoMutedLabel">Silenciado</span>
+              </button>
+
+              <div class="carousel-arrows-pill" role="group" aria-label="Controles de galería de videos">
+                <button type="button" class="carousel-arrow-btn" id="video-prev" aria-label="Anterior">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M15 18l-6-6 6-6" />
+                  </svg>
+                </button>
+                <span class="carousel-counter" id="video-counter">01 / 10</span>
+                <button type="button" class="carousel-arrow-btn" id="video-next" aria-label="Siguiente">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-carousel-viewport">
+            <div class="social-carousel-track video-carousel-track" id="video-track" tabindex="0"
+              aria-label="Galería deslizable de Edición de Video">
               <!-- Populated dynamically from js/gallery-data.js -->
             </div>
           </div>
@@ -739,14 +823,25 @@
     <button type="button" class="lightbox-nav lightbox-nav--next" id="lightbox-next" aria-label="Siguiente">→</button>
   </div>
 
+  <!-- Video Lightbox Modal (Video Editing & Motion Pieces — starts muted by default) -->
+  <div class="lightbox-backdrop" id="video-lightbox" hidden role="dialog" aria-modal="true" aria-label="Reproductor de video">
+    <button type="button" class="lightbox-close" id="video-lightbox-close" aria-label="Cerrar">✕</button>
+    <button type="button" class="lightbox-nav lightbox-nav--prev" id="video-lightbox-prev" aria-label="Anterior">←</button>
+    <figure class="lightbox-figure lightbox-figure--video">
+      <video id="video-lightbox-player" controls playsinline muted loop preload="metadata"></video>
+      <figcaption id="video-lightbox-caption"></figcaption>
+    </figure>
+    <button type="button" class="lightbox-nav lightbox-nav--next" id="video-lightbox-next" aria-label="Siguiente">→</button>
+  </div>
+
   <!-- Toast Notification (Copy Email) -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <!-- Scripts -->
-  <script src="js/gallery-data.js?v=5"></script>
-  <script src="js/translations.js?v=4"></script>
+  <script src="js/gallery-data.js?v=6"></script>
+  <script src="js/translations.js?v=5"></script>
   <script src="js/ascii-engine.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 
 </html>
